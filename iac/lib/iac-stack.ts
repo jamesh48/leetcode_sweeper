@@ -119,7 +119,13 @@ export class LCSStack extends cdk.Stack {
     importedALBListener.addTargetGroups('lcs-listener-tg', {
       targetGroups: [targetGroup],
       priority: 85,
-      conditions: [elbv2.ListenerCondition.pathPatterns(['/*'])],
+      conditions: [
+        // Temporary
+        elbv2.ListenerCondition.hostHeaders([
+          'www.camdenbot.com',
+          'camdenbot.com',
+        ]),
+      ],
     });
   }
 }

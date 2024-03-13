@@ -8,8 +8,7 @@ const getRecentSubmissions = router
     try {
       const [leetCodeUserName, dateToFind] = req.query.slug as string[];
       const { submissionCalendar } = await userSubmissionCalendarFetch(
-        leetCodeUserName,
-        '1'
+        leetCodeUserName
       );
 
       console.log(submissionCalendar);

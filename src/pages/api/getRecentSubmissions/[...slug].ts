@@ -1,17 +1,17 @@
-import { router } from '@/api-libs';
-import { parseRecentSubmissions } from '@/api-libs/parseRecentSubmissions';
-import { userSubmissionCalendarFetch } from '@/api-libs/userSubmissionCalendarFetch';
+import {
+  router,
+  parseRecentSubmissions,
+  userSubmissionCalendarFetch,
+} from '@/api-libs';
 
 const getRecentSubmissions = router
   .clone()
   .get(async (req, res) => {
     try {
       const [leetCodeUserName, dateToFind] = req.query.slug as string[];
-      const { submissionCalendar } = await userSubmissionCalendarFetch(
+      const submissionCalendar = await userSubmissionCalendarFetch(
         leetCodeUserName
       );
-
-      console.log(submissionCalendar);
 
       const dateObject = parseRecentSubmissions(submissionCalendar);
 

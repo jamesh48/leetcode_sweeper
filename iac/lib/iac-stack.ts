@@ -13,9 +13,6 @@ interface LCSStackProps extends cdk.StackProps {
     AWS_DEFAULT_SG: string;
     AWS_VPC_ID: string;
   };
-  svc_env: {
-    LEETCODE_USERNAME: string;
-  };
 }
 export class LCSStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props: LCSStackProps) {
@@ -79,9 +76,6 @@ export class LCSStack extends cdk.Stack {
           streamPrefix: 'lcs-fargate-container',
           logRetention: logs.RetentionDays.FIVE_DAYS,
         }),
-        environment: {
-          ...props.svc_env,
-        },
       }
     );
 

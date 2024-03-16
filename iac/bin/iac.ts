@@ -33,9 +33,7 @@ new LCSStack(app, 'LcsApp', {
     AWS_DEFAULT_SG,
     AWS_VPC_ID,
   },
-  svc_env: {
-    LEETCODE_USERNAME: 'jamesh48',
-  },
+
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
     region: process.env.CDK_DEFAULT_REGION,
